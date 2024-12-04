@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Wrapper cho dropdown */
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        /* Nút dropdown */
+        
+        .dropdown-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            min-width: 160px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Thêm mũi tên xuống */
+        
+        .dropdown-btn:after {
+            content: '';
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 3px;
+            transform: rotate(45deg);
+            margin-left: 10px;
+        }
+        /* Dropdown content (ẩn mặc định) */
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            margin-top: 4px;
+            z-index: 1;
+        }
+        /* Links trong dropdown */
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        /* Hiệu ứng hover cho links */
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        /* Hiệu ứng hover cho nút */
+        
+        .dropdown-btn:hover {
+            background-color: #45a049;
+        }
+        /* Hiển thị dropdown khi hover */
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        /* Animation cho dropdown */
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .dropdown:hover .dropdown-content {
+            animation: slideDown 1s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dropdown" id="myDropdown">
+        <button class="dropdown-btn" id="dropdownBtn">
+        Chọn một tùy chọn
+    </button>
+        <div class="dropdown-content">
+            <a href="#" data-value="1">Tùy chọn 1</a>
+            <a href="#" data-value="2">Tùy chọn 2</a>
+            <a href="#" data-value="3">Tùy chọn 3</a>
+            <a href="#" data-value="4">Tùy chọn 4</a>
+        </div>
+    </div>
+
+    <script>
+        const dropdown = document.getElementById('myDropdown');
+        const dropdownBtn = document.getElementById('dropdownBtn');
+        const options = document.querySelectorAll('.dropdown-content a');
+
+        // Mở/đóng dropdown khi click vào nút
+        dropdownBtn.addEventListener('click', () => {
+            dropdown.classList.toggle('active');
+        });
+
+        // Đóng dropdown khi click ra ngoài
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // Xử lý khi chọn option
+        options.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Cập nhật text cho nút
+                dropdownBtn.textContent = option.textContent;
+                // Đóng dropdown
+                dropdown.classList.remove('active');
+
+                // Nếu bạn cần lấy giá trị để xử lý
+                const selectedValue = option.getAttribute('data-value');
+                console.log('Giá trị được chọn:', selectedValue);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

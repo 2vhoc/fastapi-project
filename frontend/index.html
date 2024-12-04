@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./static/images/Logo_PTIT_University.png" type="image/x-icon">
+    <title>Recognition Students for University</title>
+    <link rel="stylesheet" href="./static/main.css">
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <button id="nameDisplay" class="login-button"></button>
+
+    <div class="dropdown">
+        <button class="dropdown-btn">
+            Nhóm
+    </button>
+        <div class="dropdown-content" id="group">
+            <a href="#">Nhóm 1</a>
+            <a href="#">Nhóm 2</a>
+            <a href="#">Nhóm 3</a>
+            <a href="#">Nhóm 4</a>
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <h1 class="title">PTIT - Recognition</h1>
+        <video id="video" autoplay playsinline></video>
+        <div class="button-group">
+            <button id="start" class="control-button">Bắt đầu nhận diện</button>
+            <button id="stop" class="control-button">Hủy bỏ</button>
+            <button id="capture" class="control-button">Chụp ảnh</button>
+        </div>
+        <canvas id="canvas" hidden></canvas>
+        <div id="status" class="status">Vui lòng bật camera...</div>
+        <div id="results" class="results"></div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Vũ Văn Học. All rights reserved.</p>
+    </footer>
+    <script src="./static/main.js"></script>
+    <script>
+        async function getNameDisplay() {
+            const response = await fetch('http://127.0.0.1:8000/index/nameDisplay');
+            if (response.ok) {
+                const userData = await response.json();
+                const NameDisplay = userData.main;
+                document.getElementById("nameDisplay").innerText = `Hello ${NameDisplay}`;
+            }
+        }
+        window.onload = getNameDisplay;
+    </script>
+    <script>
+        document.getElementById("nameDisplay").onclick = function() {
+            window.location.href = "/"
+        }
+    </script>
+
+
+
+
+
+
+    <script>
+    </script>
+
+
+
+
+
+</body>
+
+</html>

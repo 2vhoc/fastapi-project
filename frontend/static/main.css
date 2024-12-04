@@ -1,0 +1,207 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #1f4037, #99f2c8);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.footer {
+    background: linear-gradient(-45deg, #23a6d5, #23d5ab);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 2rem;
+    z-index: 10;
+}
+
+.container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    border: 2px solid #00ff99;
+}
+
+.button-group {
+    margin-top: 15px;
+}
+
+.control-button {
+    background: #0078ff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.control-button:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+.control-button:disabled {
+    background: #555;
+    cursor: not-allowed;
+}
+
+.status {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.results {
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+
+/* Thêm vào main.css của bạn */
+
+.login-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #23a6d5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.login-button:hover {
+    background-color: #23d5ab;
+}
+
+.dropdown {
+    position: fixed;
+    top: 10px;
+    /* Khoảng cách từ mép trên */
+    left: 10px;
+    /* Khoảng cách từ mép trái */
+    z-index: 1000;
+    /* Đảm bảo hiển thị trên các phần tử khác */
+}
+
+
+/* Nút dropdown */
+
+.dropdown-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    min-width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Thêm mũi tên xuống */
+
+.dropdown-btn:after {
+    content: '';
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    margin-left: 10px;
+}
+
+
+/* Dropdown content (ẩn mặc định) */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin-top: 4px;
+    z-index: 1;
+}
+
+
+/* Links trong dropdown */
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Hiệu ứng hover cho links */
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* Hiệu ứng hover cho nút */
+
+.dropdown-btn:hover {
+    background-color: #45a049;
+}
+
+
+/* Hiển thị dropdown khi hover */
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Animation cho dropdown */
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown:hover .dropdown-content {
+    animation: slideDown 1s ease;
+}
