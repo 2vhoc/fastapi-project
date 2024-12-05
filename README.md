@@ -7,7 +7,7 @@ cd backend
 
 
 <pre><code class"language-javascript">
-pip install -requirements.txt
+pip install -r requirements.txt
 </code></pre>
 ### B2:
 <pre><code class"language-javascript">
